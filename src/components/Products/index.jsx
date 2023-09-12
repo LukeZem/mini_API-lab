@@ -5,7 +5,7 @@ import "./index.css"
 const Products = () => {
     const [products, setProducts] = useState([]);
 
-    // console.log(products);
+    console.log(products);
     useEffect(() => {
         axios("https://dummyjson.com/products").then((response) => {
             console.log(response);
@@ -21,15 +21,18 @@ const Products = () => {
             <div key={product.id}>
                 <div>{product.title}</div>
                 <div>${product.price}</div>
-                <img src={product.images[Math.floor(Math.random() * 3)]} alt="" style={{maxWidth: "100px"}} />
+                <img src={product.images[0]} alt="" style={{ maxWidth: "100px" }} />
             </div>
         )
     })
 
     return (
-        <div id="product-container">
-            {productJSX}
-        </div>
+        <>
+            <h1>THE STUFFS</h1>
+            <div id="product-container">
+                {productJSX}
+            </div>
+        </>
     )
 };
 
